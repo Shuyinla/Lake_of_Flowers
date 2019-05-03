@@ -20,6 +20,9 @@ public class Manager {
 		return varManager; 
 	}
 	
+	/**
+	 * @author 肖飞杨
+	 */
 	public void printList(){ // 打印商店里的所有商品及其库存量
 		System.out.println("测试Manager的打印商店功能");
 	}
