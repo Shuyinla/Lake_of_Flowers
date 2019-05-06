@@ -109,4 +109,9 @@ public class Cart {
 		
 		return -1; 
 	}
+	
+	public void clearAll(){ // 清空购物车
+		this.itemList = new Good[1]; 
+		this.quantityList = new int[1]; 
+	}
 }
