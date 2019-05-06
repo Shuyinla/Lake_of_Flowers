@@ -13,10 +13,10 @@ public class Good extends Commodity {
 		
 	}
 
-	public Good(String a, float b, String c) {
-		type = a;
-		price = b;
-		name = c;
+	public Good(String Type, String Name, float Price) { // 肖飞杨调整了形参的顺序
+		type = Type;
+		price = Price;
+		name = Name;
 	}
 
 	public float getPrice() {
