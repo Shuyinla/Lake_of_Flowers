@@ -3,11 +3,11 @@ package ShuYin;
 import ChenXiang_FuYan.Cart;
 
 public class User {
-	private float userBalance;// Óà¶î
-	private String userID;// ÓÃ»§ID
-	private static float count;// ¼ÇÂ¼ÀÛ¼ÆÏû·Ñ
-	private Cart userCart = new Cart();// ¹ºÎï³µ¶ÔÏó Ğ¤·ÉÑîÌí¼ÓprivateĞŞÊÎ
-	// ³äÖµ·½·¨
+	private float userBalance;// ä½™é¢
+	private String userID;// ç”¨æˆ·ID
+	private static float count;// è®°å½•ç´¯è®¡æ¶ˆè´¹
+	private Cart userCart = new Cart();// è´­ç‰©è½¦å¯¹è±¡ è‚–é£æ¨æ·»åŠ privateä¿®é¥°
+	// å……å€¼æ–¹æ³•
 
 	public User() {
 
@@ -22,15 +22,15 @@ public class User {
 		return this.userID;
 	}
 	
-	public void deposit(int a) {// ³äÖµ·½·¨
+	public void deposit(int a) {// å……å€¼æ–¹æ³•
 		userBalance += a;
 	}
 
-	public void checkout() {// ½áÕË·½·¨
+	public void checkout() {// ç»“è´¦æ–¹æ³•
 		double sum;
 		sum=0;
 		String tip;
-		//±êÊ¶µÈ¼¶,Ã¿´Îµ÷ÓÃ¸Ã·½·¨½øĞĞÓà¶îÅĞ¶Ï£¬´Ó¶øÊµÏÖ½áÕËÊ±¸ù¾İÓà¶î×Ô¶¯Ë¢ĞÂµÈ¼¶
+		//æ ‡è¯†ç­‰çº§,æ¯æ¬¡è°ƒç”¨è¯¥æ–¹æ³•è¿›è¡Œä½™é¢åˆ¤æ–­ï¼Œä»è€Œå®ç°ç»“è´¦æ—¶æ ¹æ®ä½™é¢è‡ªåŠ¨åˆ·æ–°ç­‰çº§
 		if(userBalance>3000) {
 			tip="gold";
 		}else if(userBalance<=3000 && userBalance>1000) {
@@ -38,7 +38,8 @@ public class User {
 		}else {
 			tip="copper";
 		}
-		//ÅĞ¶ÏÓÃ»§µÈ¼¶ºÍÀÛ»ıÏû·ÑÊı¶î½øĞĞÏàÓ¦¼ÆËã
+		if(userBalance>=userCart.getSum()){
+		//åˆ¤æ–­ç”¨æˆ·ç­‰çº§å’Œç´¯ç§¯æ¶ˆè´¹æ•°é¢è¿›è¡Œç›¸åº”è®¡ç®—
 		if(tip=="gold") {
 			sum = userCart.getSum() * 9.7;
 			userBalance-=sum;
@@ -61,6 +62,9 @@ public class User {
 			}
 		userCart.clearAll();
 	}
+	}else{
+	System.out.println("ä½™é¢ä¸è¶³ï¼Œä»˜æ¬¾å¤±è´¥ï¼");
+	}
 
 	public void Buy(Good item, int quantity) {
 		userCart.additem(item, quantity);
@@ -73,7 +77,7 @@ public class User {
 	public void inspectCart() {
 		userCart.printList();
 	}
-	public void clearCart(){ // Ğ¤·ÉÑî²¹³ä·½·¨£ºÇå¿Õ¹ºÎï³µ
+	public void clearCart(){ // è‚–é£æ¨è¡¥å……æ–¹æ³•ï¼šæ¸…ç©ºè´­ç‰©è½¦
 		userCart.clearAll();
 	}
 	
